@@ -11,6 +11,7 @@ services:
             - "8000:8000"
         environment:
             - DEBUG=1
+            - SECRET_KEY=django-insecure-z6&lk)c08@rngk71-k)xdjl*4xs-yly1+-@%iw9_64g6r1n%gp
             - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
             - CELERY_BROKER=redis://redis:6379/0
             - CELERY_BACKEND=redis://redis:6379/0
@@ -24,6 +25,7 @@ services:
             - .:/usr/src/app
         environment:
             - DEBUG=1
+            - SECRET_KEY=django-insecure-z6&lk)c08@rngk71-k)xdjl*4xs-yly1+-@%iw9_64g6r1n%gp
             - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
             - CELERY_BROKER=redis://redis:6379/0
             - CELERY_BACKEND=redis://redis:6379/0
