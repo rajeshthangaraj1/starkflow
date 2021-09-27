@@ -1,4 +1,4 @@
-# Starkflow Celery Task
+# Starkflow Celery Periodic Task using Docker
 
 ## Setup
 
@@ -9,35 +9,29 @@ $ git clone https://github.com/rajeshthangaraj1/starkflow.git
 $ cd starkflow
 ```
 
-Run the docker compose webapp using below command:
+Run the docker compose to create a docker image using below command:
 
 ```
 docker-compose run django
 ```
 
-Then install the dependencies:
+Run the docker compose to create a docker container using below command:
 
-```sh
-(env)$ pip install -r requirements.txt
 ```
-Note the `(env)` in front of the prompt. This indicates that this terminal
-session operates in a virtual environment set up by `virtualenv2`.
-
-Once `pip` has finished downloading the dependencies:
-```sh
-(env)$ cd project
-(env)$ python manage.py runserver
+docker-compose up
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
+Once run the container , celery periodic task will start to execute every 1 minute.
 
-## Project Flow
+#API Flow
 
-The scope of the project is online course portal for medical representative.
+Method GET : Return exchange rate list fetching form db.
+```
+http://127.0.0.1:8000/api/v1/quotes
+```
 
-## Tests
-
-To run the tests, `cd` into the directory where `manage.py` is:
-```sh
-(env)$ python manage.py test starkflow
+Method POST : Return exchange rate fetching from direct Live api.
+```
+http://127.0.0.1:8000/api/v1/quotes
 ```
