@@ -15,7 +15,7 @@ Run the docker compose to create a docker image using below command:
 docker-compose run django
 ```
 
-Run the docker compose to create a docker container using below command:
+Run the docker compose to create a docker container using below command
 
 ```
 docker-compose up
