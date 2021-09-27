@@ -9,11 +9,10 @@ $ git clone https://github.com/rajeshthangaraj1/starkflow.git
 $ cd starkflow
 ```
 
-Create a virtual environment to install dependencies in and activate it:
+Run the docker compose webapp using below command:
 
-```sh
-$ virtualenv2 --no-site-packages env
-$ source env/bin/activate
+```
+docker-compose run django
 ```
 
 Then install the dependencies:
