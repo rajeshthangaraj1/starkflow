@@ -37,7 +37,7 @@ http://127.0.0.1:8000/api/v1/quotes
 ```
 ## API ACCESS TOKEN KEY
 
-To access the API key token method,we need to create a super user, so just go to view.py and uncomment the line number 30 and navigate to `http://127.0.0.1:8000/`.
+To access the API key token method,we need to create a super user, so just go to view.py and uncomment the line number 33 and navigate to `http://127.0.0.1:8000/`.
 
 We need to create a api key token using superuser creaditial through below api link
 
