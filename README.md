@@ -9,10 +9,10 @@ $ git clone https://github.com/rajeshthangaraj1/starkflow.git
 $ cd starkflow
 ```
 
-Run the docker compose to create a docker image using below command:
+From the project root, create the images and spin up the Docker containers:
 
 ```
-docker-compose run django
+docker-compose up -d --build
 ```
 
 Run the docker compose to create a docker container using below command
