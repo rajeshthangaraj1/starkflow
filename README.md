@@ -1,4 +1,4 @@
-# Starkflow Celery Task
+# Starkflow Celery Periodic Task using Docker
 
 ## Setup
 
@@ -9,36 +9,40 @@ $ git clone https://github.com/rajeshthangaraj1/starkflow.git
 $ cd starkflow
 ```
 
-Create a virtual environment to install dependencies in and activate it:
+Run the docker compose to create a docker image using below command:
 
-```sh
-$ virtualenv2 --no-site-packages env
-$ source env/bin/activate
+```
+docker-compose run django
 ```
 
-Then install the dependencies:
+Run the docker compose to create a docker container using below command
 
-```sh
-(env)$ pip install -r requirements.txt
 ```
-Note the `(env)` in front of the prompt. This indicates that this terminal
-session operates in a virtual environment set up by `virtualenv2`.
-
-Once `pip` has finished downloading the dependencies:
-```sh
-(env)$ cd project
-(env)$ python manage.py runserver
+docker-compose up
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
+Once run the container , celery periodic tasks will start to execute every 1 minute.
 
-## Project Flow
+## API Flow
 
-The scope of the project is online course portal for medical representative.
-
-## Tests
-
-To run the tests, `cd` into the directory where `manage.py` is:
-```sh
-(env)$ python manage.py test starkflow
+Method GET : Return exchange rate list fetching from db.
 ```
+http://127.0.0.1:8000/api/v1/quotes
+```
+
+Method POST : Return exchange rate fetching from direct Live API.
+```
+http://127.0.0.1:8000/api/v1/quotes
+```
+## API ACCESS TOKEN KEY
+
+To access the API key token method,we need to create a super user, so just go to view.py and uncomment the line number 30 and navigate to `http://127.0.0.1:8000/`.
+
+We need to create a api key token using superuser creaditial through below api link
+
+```
+http://127.0.0.1:8000/api/token/
+
+```
+Once the token api key is created, just use that access token to authentication Bearer token method to access the get and post API.
