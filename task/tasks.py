@@ -3,11 +3,15 @@ from celery.schedules import crontab
 from celery import shared_task 
 from task.models import *
 import requests 
+import os
+from dotenv import load_dotenv
+load_dotenv()
 #app = Celery()
 
 @shared_task
 def conversiontask():
-    url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey=AN34Z3ELH88WKNYA'
+    apikey=os.getenv("APIKEY")
+    url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey='+apikey
     r = requests.get(url)
     data = r.json()
     print('task')

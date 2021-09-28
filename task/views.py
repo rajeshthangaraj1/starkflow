@@ -7,7 +7,9 @@ import requests
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAdminUser
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 class ConversionList(generics.ListCreateAPIView):
@@ -20,7 +22,8 @@ class ConversionList(generics.ListCreateAPIView):
         return Response(serializer_class.data)
    
     def post(self, request):
-        url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey=AN34Z3ELH88WKNYA'
+        apikey=os.getenv("APIKEY")
+        url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey='+apikey
         r = requests.get(url)
         data = r.json()
         return Response(data)
@@ -28,6 +31,11 @@ class ConversionList(generics.ListCreateAPIView):
 def index(request): 
 
     #User.objects.create_superuser('admin', 'admin@example.com', 'admin')
-    return HttpResponse("Using docker compose to create a celery periodic task")
+    # apikey=os.getenv("APIKEY")
+    # url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey='+apikey
+    # r = requests.get(url)
+    # data = r.json()
+    # print(data)
+    return HttpResponse('ssss')
 
 
