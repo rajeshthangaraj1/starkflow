@@ -31,11 +31,6 @@ class ConversionList(generics.ListCreateAPIView):
 def index(request): 
 
     #User.objects.create_superuser('admin', 'admin@example.com', 'admin')
-    # apikey=os.getenv("APIKEY")
-    # url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=BTC&to_currency=USD&apikey='+apikey
-    # r = requests.get(url)
-    # data = r.json()
-    # print(data)
-    return HttpResponse('ssss')
+    return HttpResponse('Using docker compose to create a celery periodic task')
 
 
