@@ -15,10 +15,10 @@ From the project root, create the images and spin up the Docker containers:
 docker-compose up -d --build
 ```
 
-Run the docker compose to create a docker container using below command
+Next, apply the migrations:
 
 ```
-docker-compose up
+docker-compose exec django python manage.py migrate
 ```
 And navigate to `http://127.0.0.1:8000/`.
 
